@@ -42,7 +42,7 @@ Make a copy of config.json.example to config.json and the edit file.
 In the configuration file you need to set the following information:
 
 * account_name - Account you will distribute tokens from
-* wif - Active key for this account
+* wif - Active key for this account (You can also use beem wallet)
 * token - Name of the Steem Engine Token to airdrop
 * memo - Memo to airdrop recipients
 * mode - This can either be transfer, issue, stake

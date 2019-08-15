@@ -1,0 +1,9 @@
+{
+	"account_name" : "",
+	"wif" : "",
+	"token" : "",
+	"memo" : "",
+	"mode" : "",
+	"delay" : 10,
+	"dry_run" : false
+}

@@ -1,0 +1,54 @@
+# seairdrop
+Steem Engine Air Drop Tool
+---
+
+This tool will allow you to conduct your own airdrop without any using third party services.
+
+## Supports all three distribution methods
+
+* Transfer
+* Issue
+* Stake
+
+## Requirements
+
+* Python 3
+* Beem Python Module
+
+## Installation
+
+Install Python 3
+
+Install Requirements
+`pip install -r requirements.txt`
+
+## Usage
+
+Create a text file with a list of all users and quantity of the token you want to distribute in a comma seperated file (csv).
+
+Any users that do not exist will be skipped automatically.
+
+## Air drop file
+
+**airdrop.txt**:  
+
+frank, 1000  
+ned, 1000  
+bob, 500  
+ted, 200
+
+Make a copy of config.json.example to config.json and the edit file.
+
+In the configuration file you need to set the following information:
+
+* account_name - Account you will distribute tokens from
+* wif - Active key for this account
+* token - Name of the Steem Engine Token to air drop
+* memo - Memo to air drop recipients
+* mode - This can either be transfer, issue, stake
+* delay - delay between users, recommended at least 10 seconds
+* dry_run - True/False if you want to just do a test run
+
+Once everything is setup, just need to do `python go.py <airdrop filename>` to start.
+
+If you found this tool useful, send whatever you think this tool is worth to you in any token to @themarkymark.  

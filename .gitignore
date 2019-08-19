@@ -4,6 +4,9 @@ config.json
 # Air drop files
 *.txt
 
+# requirements.txt
+!requirements.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

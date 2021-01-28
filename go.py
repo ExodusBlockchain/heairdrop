@@ -58,7 +58,7 @@ def send_tokens(stm, user, amount, retries=0):
 
     if not config['dry_run']:
         try:
-            stm.custom_json('ssc-mainnet1', data,
+            stm.custom_json('ssc-mainnet-hive', data,
                             required_auths=[config['account_name']])
         except:
             if retries < 3:

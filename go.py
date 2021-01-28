@@ -3,10 +3,10 @@ import json
 import sys
 import time
 
-from beem import Steem
+from beem import Hive
 from beem.account import Account
 from beem.exceptions import AccountDoesNotExistsException
-from beem.instance import set_shared_steem_instance
+from beem.instance import set_shared_hive_instance
 
 config = {}
 user_list = []
@@ -53,22 +53,22 @@ def build_payload(user, amount):
     return data
 
 
-def send_tokens(stm, user, amount, retries=0):
+def send_tokens(hive, user, amount, retries=0):
     data = build_payload(user, amount)
 
     if not config['dry_run']:
         try:
-            stm.custom_json('ssc-mainnet-hive', data,
-                            required_auths=[config['account_name']])
+            hive.custom_json('ssc-mainnet-hive', data,
+                             required_auths=[config['account_name']])
         except:
             if retries < 3:
-                send_tokens(stm, user, amount, retries=retries)
+                send_tokens(hive, user, amount, retries=retries)
             else:
                 print(f"Airdrop aborted at user: {user[0]}")
                 quit()
 
 
-def do_airdrop(stm):
+def do_airdrop(hive):
     estimated_time = round((len(user_list) * config['delay']) / 60, 1)
 
     estimated_tokens = 0
@@ -97,7 +97,7 @@ def do_airdrop(stm):
 
         print(f"Sending {user[1]} {config['token']} tokens to @{user[0]}")
         if not config['dry_run']:
-            send_tokens(stm, user[0], user[1])
+            send_tokens(hive, user[0], user[1])
 
         time.sleep(config['delay'])
 
@@ -106,10 +106,10 @@ def main():
     load_config()
     load_users()
 
-    stm = Steem(wif=config['wif'])
-    set_shared_steem_instance(stm)
+    hive = Hive(wif=config['wif'])
+    set_shared_hive_instance(hive)
 
-    do_airdrop(stm)
+    do_airdrop(hive)
 
 
 if __name__ == '__main__':

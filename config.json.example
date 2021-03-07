@@ -5,5 +5,5 @@
 	"memo" : "",
 	"mode" : "",
 	"delay" : 10,
-	"dry_run" : false
+	"dry_run" : true
 }

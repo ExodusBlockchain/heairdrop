@@ -1,5 +1,5 @@
-# seairdrop
-Steem Engine Airdrop Tool
+# heairdrop
+Hive Engine Airdrop Tool
 ---
 
 This tool will allow you to conduct your own airdrop without any using third party services.

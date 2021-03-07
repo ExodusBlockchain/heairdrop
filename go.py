@@ -6,6 +6,7 @@ import time
 from beem import Hive
 from beem.account import Account
 from beem.exceptions import AccountDoesNotExistsException
+from beem.nodelist import NodeList
 from beem.instance import set_shared_hive_instance
 
 config = {}
@@ -106,6 +107,9 @@ def main():
     load_config()
     load_users()
 
+    nodelist = NodeList()
+    nodelist.update_nodes()
+    nodes = nodelist.get_hive_nodes()
     hive = Hive(wif=config['wif'])
     set_shared_hive_instance(hive)
 
